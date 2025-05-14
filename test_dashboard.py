@@ -74,11 +74,23 @@ app.layout = html.Div([
 def update_top_movies(selected_year, selected_genre):
     filtered_df = movie_rating_tags_df.copy()
 
+    # Filter by year if selected
     if selected_year:
         filtered_df = filtered_df[filtered_df['year'] == selected_year]
+    
+    # Filter by genre if selected
     if selected_genre:
         filtered_df = filtered_df[filtered_df[selected_genre] == 1]
+    
+    # Check if the filtered dataframe is empty
+    if filtered_df.empty:
+        return {}  # Return an empty figure if there's no data to display
+    
+    # Ensure 'rating_count' is numeric and drop rows with missing values
+    filtered_df['rating_count'] = pd.to_numeric(filtered_df['rating_count'], errors='coerce')
+    filtered_df = filtered_df.dropna(subset=['rating_count'])
 
+    # Group by movie title and get the top 6 movies
     top_movies = (filtered_df
                   .groupby('title')['rating_count']
                   .sum()
@@ -86,21 +98,28 @@ def update_top_movies(selected_year, selected_genre):
                   .sort_values('rating_count', ascending=False)
                   .head(6))
 
+    # Check if top_movies is empty after processing
+    if top_movies.empty:
+        return {}
+
+    # Generate the bar plot
     fig = px.bar(top_movies,
                  x='rating_count', y='title',
                  orientation='h',
                  title=f"Top Movies{f' in {selected_year}' if selected_year else ''}{f' - {selected_genre}' if selected_genre else ''}",
                  labels={'rating_count': 'Rating Count', 'title': ''},
-                 template='plotly_dark', color_discrete_sequence=['#FFD700'])
-
+                 color_discrete_sequence=['#FFD700'],
+                 template='plotly_dark')
+    
+    # Customize layout and formatting
     fig.update_layout(
         yaxis={'categoryorder': 'total ascending'},
-        font=dict(color='#FFD700'),
+        yaxis_tickfont=dict(size=10, family='Arial', color='gold'),
         plot_bgcolor='#000',
         paper_bgcolor='#000',
-        yaxis_tickfont=dict(size=10, family='Arial', color='#FFD700'),
-        title_font=dict(color='#FFD700')
+        font=dict(color='gold')
     )
+    
     return fig
 
 # Callback: Trending Movies
@@ -164,4 +183,4 @@ def update_rating_line(selected_year, selected_genre):
 
 # Run server
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8052)
+    app.run_server(debug=True, port=8055)
