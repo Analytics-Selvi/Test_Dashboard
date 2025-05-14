@@ -8,7 +8,9 @@ from dash import dcc, Dash, html, Input, Output, dash_table
 import plotly.express as px
 st.title('Movies Dashboard')
 
-movie_rating_tags_df = pd.read_excel("movie_ratings_tags.xls")
+movie_rating_tags_df = pd.read_csv("movie_rating_tags.xls")
+
+
 genre_cols = ['Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime', 'Documentary',
               'Drama', 'Fantasy', 'Film-Noir', 'Horror', 'IMAX', 'Musical', 'Mystery',
               'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western']
@@ -55,7 +57,7 @@ app.layout = html.Div([
     ]),
 
     html.Div([
-        html.H3("📈 Rating Trend", style={'color': '#FFD700', 'textAlign': 'left'}),
+        html.H3("Rating Trend", style={'color': '#FFD700', 'textAlign': 'left'}),
         dcc.Graph(id='rating-line-plot')
     ])
 ], style={
