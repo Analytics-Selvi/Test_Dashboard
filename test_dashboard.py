@@ -8,7 +8,7 @@ from dash import dcc, Dash, html, Input, Output, dash_table
 import plotly.express as px
 
 
-
+movie_rating_tags_df = pd.read_csv("movie_ratings_tags.csv")
 genre_cols = ['Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime', 'Documentary',
               'Drama', 'Fantasy', 'Film-Noir', 'Horror', 'IMAX', 'Musical', 'Mystery',
               'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western']
