@@ -7,7 +7,7 @@ import dash
 from dash import dcc, Dash, html, Input, Output, dash_table
 import plotly.express as px
 st.title('Movies Dashboard')
-streamlit run test_dashboard.py
+streamlit test_dashboard.py
 
 
 movie_rating_tags_df = pd.read_csv("movie_ratings_tags.csv")
