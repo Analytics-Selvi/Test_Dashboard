@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,7 +14,29 @@ from dash import dcc, Dash, html, Input, Output, dash_table
 import plotly.express as px
 st.title('Movies Dashboard')
 
+import warnings
+warnings.filterwarnings("ignore")
+
+
+# In[2]:
+
+
+#!pip install streamlit
+
+
+# In[3]:
+
+
 movie_rating_tags_df = pd.read_csv("movie_rating_tags.xls")
+
+
+# In[4]:
+
+
+movie_rating_tags_df
+
+
+# In[12]:
 
 
 genre_cols = ['Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime', 'Documentary',
@@ -186,3 +214,10 @@ def update_rating_line(selected_year, selected_genre):
 # Run server
 if __name__ == '__main__':
     app.run_server(debug=True, port=8055)
+
+
+# In[ ]:
+
+
+
+
