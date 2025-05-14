@@ -1,11 +1,13 @@
 import pandas as pd
 import numpy as np
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import seaborn as sns
-
+import streamlit as st
 import dash
 from dash import dcc, Dash, html, Input, Output, dash_table
 import plotly.express as px
+st.title('Movies Dashboard')
+streamlit run test_dashboard.py
 
 
 movie_rating_tags_df = pd.read_csv("movie_ratings_tags.csv")
