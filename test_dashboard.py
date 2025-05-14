@@ -210,9 +210,14 @@ def update_rating_line(selected_year, selected_genre):
         title_font=dict(color='#FFD700')
     )
     return fig
-  # Run server
+server = app.server  # Required for Render
+
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8055)
+    app.run(debug=True, port=8055)
+
+  # Run server
+#if __name__ == '__main__':
+#    app.run_server(debug=True, port=8055)
 
 
 
