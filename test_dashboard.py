@@ -10,7 +10,7 @@ st.title('Movies Dashboard')
 streamlit test_dashboard.py
 
 
-movie_rating_tags_df = pd.read_csv("movie_ratings_tags.csv")
+movie_rating_tags_df = pd.read_csv("movie_ratings_tags_df.csv")
 genre_cols = ['Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime', 'Documentary',
               'Drama', 'Fantasy', 'Film-Noir', 'Horror', 'IMAX', 'Musical', 'Mystery',
               'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western']
