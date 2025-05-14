@@ -8,11 +8,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import streamlit as st
+#import streamlit as st
 import dash
 from dash import dcc, Dash, html, Input, Output, dash_table
 import plotly.express as px
-st.title('Movies Dashboard')
+#st.title('Movies Dashboard')
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -213,7 +213,8 @@ def update_rating_line(selected_year, selected_genre):
 server = app.server  # Required for Render
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8055)
+    port = int(os.environ.get('PORT', 8055))  # Use Render's port or fallback to 8055 locally
+    app.run(debug=True, port=port)
 
   # Run server
 #if __name__ == '__main__':
