@@ -209,7 +209,7 @@ def update_rating_line(selected_year, selected_genre):
         paper_bgcolor='#000',
         title_font=dict(color='#FFD700')
     )
-  return fig
+    return fig
 
 
 
