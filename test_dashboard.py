@@ -8,6 +8,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
+
 #import streamlit as st
 import dash
 from dash import dcc, Dash, html, Input, Output, dash_table
@@ -210,6 +212,7 @@ def update_rating_line(selected_year, selected_genre):
         title_font=dict(color='#FFD700')
     )
     return fig
+
 server = app.server  # Required for Render
 
 if __name__ == '__main__':
