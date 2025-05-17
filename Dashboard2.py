@@ -37,7 +37,7 @@ def style_plot(fig, title):
     fig.update_layout(
         title=title,
         title_font_size=26,
-        title_font_color='yellow',
+        title_font_color='black',
         title_x=0.5,
         plot_bgcolor='black',
         paper_bgcolor='black',
