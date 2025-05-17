@@ -7,7 +7,7 @@ st.title("Movie Explorer by Tag")
 
 @st.cache_data
 def load_data():
-    url = "https://raw.githubusercontent.com/your-username/your-repo/main/Dasbboard_df.csv"
+    url = "https://github.com/Analytics-Selvi/Test_Dashboard/blob/main/Dasbboard_df.csv"
     return pd.read_csv(url)
 
 dashboard_df = load_data()
