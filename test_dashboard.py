@@ -7,10 +7,10 @@ st.title("🎬 Movie Explorer by Tag")
 
 @st.cache_data
 def load_data():
-    url = "https://raw.githubusercontent.com/your-username/your-repo/main/dashboard_df.csv"
+    url = "https://raw.githubusercontent.com/your-username/your-repo/main/Dasbboard_df.csv"
     return pd.read_csv(url)
 
-Dasbboard_df = load_data()
+dashboard_df = load_data()
 
 required_cols = {'title', 'rating_count', 'tag'}
 if not required_cols.issubset(set(dashboard_df.columns)):
