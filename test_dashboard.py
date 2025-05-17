@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 st.set_page_config(page_title="Movie Explorer by Tag", layout="wide")
-st.title("🎬 Movie Explorer by Tag")
+st.title("Movie Explorer by Tag")
 
 @st.cache_data
 def load_data():
