@@ -20,28 +20,7 @@ selected_year = st.sidebar.selectbox("Select Year", year_options)
 selected_genre = st.sidebar.selectbox("Select Genre", genre_options)
 selected_tags = st.sidebar.multiselect("Select Tags (Only for 'Movies by Tags')", tag_options)
 
-# === Markdown Explanation (for CA Question) ===
-st.markdown("""
-## Movie Dashboard for Young Adults (18–35)
 
-This interactive dashboard is designed for younger adults (aged 18–35) to explore movie trends, genres, and tags in a sleek, app-like experience.
-
-**Design Elements for Young Adults:**
-- Dark theme with bright highlights (modern aesthetic)
-- Interactive charts (like Netflix/Spotify)
-- Mobile-friendly layout with clear tabs
-
-### Why This Dataset is Suitable for Machine Learning in Online Retail
-- Contains **user ratings**, **tags**, and **genres** ideal for **recommendation models**
-- **Ratings over time** support time-series forecasting
-- **Genre/tag distributions** reveal customer preferences
-- Dataset structure supports **supervised**, **unsupervised**, and **collaborative filtering** techniques
-
-Such ML models are crucial in **online retail** (like Amazon or Netflix) for:
-- Personalizing content
-- Predicting what users might like
-- Optimizing product visibility and sales
-""")
 
 # === Helper: Filter based on Year and Genre ===
 def filter_df(df, year, genre):
