@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 # === Load your data ===
-dashboard_df = pd.read_csv('movie_rating_tags.xls.csv')  # Replace with actual file or path
+dashboard_df = pd.read_csv('movie_rating_tags.xls') 
 
 # === Genre columns ===
 genre_cols = ['Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime', 'Documentary',
