@@ -33,15 +33,23 @@ def filter_df(df, year, genre):
 # === Plot Style Helper ===
 def update_plot_style(fig, title):
     fig.update_layout(
-        title=title,
-        title_font_size=22,
-        title_x=0.5,
+        title=dict(text=title, font=dict(color='#FFD700', size=22), x=0.5),
         plot_bgcolor='black',
         paper_bgcolor='black',
-        font_color='yellow',
-        xaxis=dict(showgrid=False, tickfont=dict(size=14)),
-        yaxis=dict(showgrid=False, tickfont=dict(size=14)),
-        legend_font_size=14
+        font=dict(color='#FFD700'),
+        xaxis=dict(
+            showgrid=False,
+            tickfont=dict(color='#FFD700', size=14),
+            title_font=dict(color='#FFD700', size=16),
+            title_standoff=15
+        ),
+        yaxis=dict(
+            showgrid=False,
+            tickfont=dict(color='#FFD700', size=14),
+            title_font=dict(color='#FFD700', size=16),
+            title_standoff=15
+        ),
+        legend=dict(font=dict(color='#FFD700', size=14))
     )
     return fig
 
