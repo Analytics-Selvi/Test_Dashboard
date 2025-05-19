@@ -59,7 +59,7 @@ def plot_top_movies():
     if df.empty:
         st.warning("No data found for selected filters.")
         return
-    top = df.groupby('title')['rating_count'].sum().reset_index().sort_values('rating_count', ascending=False).head(6)
+    top = df.groupby('title')['rating_count'].count().reset_index().sort_values('rating_count', ascending=False).head(6)
     fig = px.bar(top, x='rating_count', y='title', orientation='h', color_discrete_sequence=['#FFD700'])
     fig = update_plot_style(fig, "Top Movies by Rating Count")
     st.plotly_chart(fig, use_container_width=True)
@@ -68,7 +68,7 @@ def plot_top_movies():
 def plot_trending():
     recent_year = dashboard_df['year'].max() - 5
     trending = dashboard_df[dashboard_df['year'] >= recent_year]
-    trending = trending.groupby('title')['rating_count'].sum().reset_index().sort_values('rating_count', ascending=False).head(10)
+    trending = trending.groupby('title')['rating_count'].count().reset_index().sort_values('rating_count', ascending=False).head(10)
     fig = px.bar(trending, x='rating_count', y='title', orientation='h', color_discrete_sequence=['#FFD700'])
     fig = update_plot_style(fig, "Trending Movies (Last 5 Years)")
     st.plotly_chart(fig, use_container_width=True)
