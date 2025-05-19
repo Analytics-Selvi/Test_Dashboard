@@ -68,7 +68,7 @@ def plot_trending():
     trending = dashboard_df[dashboard_df['year'] >= recent_year]
     trending = trending.groupby('title')['rating_count'].sum().reset_index().sort_values('rating_count', ascending=False).head(10)
     fig = px.bar(trending, x='rating_count', y='title', orientation='h', color_discrete_sequence=['#FFD700'])
-    fig = update_plot_style(fig, "Trending Movies (Last 5 Years)")
+    fig = update_plot_style(fig, "Trending Movies")
     st.plotly_chart(fig, use_container_width=True)
 
 # === Average Rating Over Time ===
